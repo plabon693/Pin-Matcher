@@ -81,7 +81,6 @@
             }
 
             let pin = pinGenerator();
-            console.log(pin);
             //Putting number on display handler
             displayNumber("one");
             displayNumber("two");
@@ -109,12 +108,18 @@
             })
             //Submit button handler
             document.getElementById("submit-button").addEventListener("click",function(){
-                const generatedPin = document.getElementById("pin-number").value;
-                const givenByUser = document.getElementById("display").value;
-                if(generatedPin == givenByUser)
+                const generatedPin = parseInt(document.getElementById("pin-number").value);
+                const givenByUser = parseInt(document.getElementById("display").value);
+                console.log(givenByUser);
+                if(generatedPin == givenByUser){
                     document.getElementById("match").style.display = "block";
-                else
+                    document.getElementById("not-match").style.display = "none";
+                }   
+                else{
                     document.getElementById("not-match").style.display = "block";
+                    document.getElementById("match").style.display = "none";
+                }
+                    
             })
         </script>
 </body>
